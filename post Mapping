@@ -1,0 +1,11 @@
+   @PostMapping("/addEmp")
+    public ResponseEntity<Employees> addEmp(@RequestBody Employees emp){
+        System.out.println(emp);
+        logger.info("{}",emp);                                              //**Post API
+        serviceLayer.saveEmp(emp);
+        return new ResponseEntity<>(emp, HttpStatus.CREATED);
+
+    }
+    
+    
+    ** If you get a no response body found  then add  ResponseEntity<Employees> and return {return new ResponseEntity<>(emp, HttpStatus.CREATED)}
